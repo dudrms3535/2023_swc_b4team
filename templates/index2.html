@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html lang="ko">
-
+<html lang="en">
 <head>
-    <!-- Webpage Title -->
-    <title>모두의 책리뷰 | 스파르타코딩클럽</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <!-- 구글폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#reviews-box").html("");
-            showReview();
-        });
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> </title>
+<style>
+
+.mytitle {
+background-image: url("https://shared-comic.pstatic.net/thumb/webtoon/654809/thumbnail/title_thumbnail_20150806141807_t83x90.jpg");
+background-position: center;
+background-size: cover;
+width: 300px;
+height: 250px;
+border-radius: 10px;
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.mybtn {
+width: 300px;
+height: 40px;
+background-color: brown;
+color: white;
+border-radius: 10px;
+border: none;
+}
+.myinput {
+border-radius: 10px; <!--(1)-->
+height: 20px; <!--(2)-->
+}
+.idpw {
+margin-top: 30px;
+margin-bottom: 30px;
+margin-left: 20px;
+} 
 
 
 
@@ -29,127 +43,79 @@
 
 
 
+.css-icon1 {
+    --swiper-navigation-size: 12px;
+    --swiper-theme-color: #007aff;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: top;
+    user-select: none;
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+    pointer-events: none;
+}
+.css-icon3 {
 
-
-
-        function makeReview() {
-            $.ajax({
-                type: "POST",
-                url: "/review",
-                data: { sample_give: '샘플데이터' },
-                success: function (response) {
-                    alert(response["msg"]);
-                    window.location.reload();
-                }
-            })
-        }
-
-
-
-
-
-
-
-
-
-
-        function showReview() {
-            $.ajax({
-                type: "GET",
-                url: "/review?sample_give=샘플데이터",
-                data: {},
-                success: function (response) {
-                    let reviews = response['all_reviews']
-                    for (let i = 0; i < reviews.length; i++) {
-                        let title = reviews[i]['title']
-                        let author = reviews[i]['author']
-                        let review = reviews[i]['review']
-                        let temp_html = `<tr>
-                                            <td>${title}</td>
-                                            <td>${author}</td>
-                                            <td>${review}</td>
-                                        </tr>`
-                        $('#reviews-box').append(temp_html)
-                    }
-
-                }
-            })
-        }
-    </script>
-    <style type="text/css">
-        * {
-            font-family: "Do Hyeon", sans-serif;
-        }
-
-        h1,
-        h5 {
-            display: inline;
-        }
-
-        .info {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .review {
-            text-align: center;
-        }
-
-        .reviews {
-            margin-top: 100px;
-        }
-    </style>
+}
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <img src="https://previews.123rf.com/images/maxxyustas/maxxyustas1511/maxxyustas151100002/47858355-education-conce
-class=" img-fluid" alt="Responsive image">
-        <div class="info">
-            <h1>읽은 책에 대해 말씀해주세요.</h1>
-            <p>다른 사람을 위해 리뷰를 남겨주세요! 다 같이 좋은 책을 읽는다면 다 함께 행복해질 수 있지 않을까요?</p>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">제목</span>
-                </div>
-                <input type="text" class="form-control" id="title">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">저자</span>
-                </div>
-                <input type="text" class="form-control" id="author">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">리뷰</span>
-                </div>
-                <textarea class="form-control" id="bookReview" cols="30" rows="5"
-                    placeholder="140자까지 입력할 수 있습니다."></textarea>
-            </div>
-            <div class="review">
-                <button onclick="makeReview()" type="button" class="btn btn-primary">리뷰 작성하기</button>
-            </div>
-        </div>
-        <div class="reviews">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">제목</th>
-                        <th scope="col">저자</th>
-                        <th scope="col">리뷰</th>
-                    </tr>
-                </thead>
-                <tbody id="reviews-box">
-                    <tr>
-                        <td>왕초보 8주 코딩</td>
-                        <td>김르탄</td>
-                        <td>역시 왕초보 코딩교육의 명가답군요. 따라하다보니 눈 깜짝할 사이에 8주가 지났습니다.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="mytitle">
+<h1>테스트</h1>
+<h3>테스트</h3>
+</div>
+<div class="idpw"> <!--(3)-->
+<p> ID : <input class="myinput" type="text"></p> <!--(1),(2)-->
+<p> PW : <input class="myinput" type="password"></p> <!--(1),(2)-->
+</div>
+<button class="mybtn">테스트</button>
+
+<!-- views_give(조회수) -->
+<div>
+    <div>
+        <img src="https://static.manhwakyung.com/profiles/90/profile-90-002-5153bb63.jpg?q=100" class="css-icon1">
+        조회수(views_give)
+    </div>    
+</div>
+<!-- image(사진) -->
+<div class="css-0 e1biafsk2">
+    <div width="224" height="224" class="css-ejqyrq">
+        <img src="https://user-img.manhwakyung.com/posts/7c9c752e-000-3dbd16bf.png" width="224" height="224">
+        사진(image)
     </div>
+</div>
+<!-- title_give(웹툰명) -->
+<div>
+    <span>스피릿 핑거스(title_give)</span>
+</div>
+<!-- genre_give(장르) -->
+<div class="css-icon3">
+    <div style="white-space: pre-wrap; height: 100%;">
+        <span style="color: rgb(60, 130, 250);">#장르(genre_give)</span>
+        <span> </span>
+        <span style="color: rgb(60, 130, 250);">#밀리터리</span>
+        <span> </span>
+        <span style="color: rgb(60, 130, 250);">#로맨스</span>
+    </div>
+</div>
+<!-- one_line(한줄요약) -->
+<div>
+    <p>"평범한 여고생, 알록달록 이상한 그림모임에 들어가다!(one_line)
+        <br>
+        "나만의 색을 찾아 떠나는 모험 이야기!"
+    </p>
+
+</div>
+
+<button>보러가기</button>
+
 </body>
 
+
 </html>
+
+

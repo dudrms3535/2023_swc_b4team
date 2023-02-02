@@ -1,121 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title> </title>
-<style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.mytitle {
-background-image: url("https://shared-comic.pstatic.net/thumb/webtoon/654809/thumbnail/title_thumbnail_20150806141807_t83x90.jpg");
-background-position: center;
-background-size: cover;
-width: 300px;
-height: 250px;
-border-radius: 10px;
-color: white;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-}
-.mybtn {
-width: 300px;
-height: 40px;
-background-color: brown;
-color: white;
-border-radius: 10px;
-border: none;
-}
-.myinput {
-border-radius: 10px; <!--(1)-->
-height: 20px; <!--(2)-->
-}
-.idpw {
-margin-top: 30px;
-margin-bottom: 30px;
-margin-left: 20px;
-} 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
+    <title>올웹툰랭킹</title>
 
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
 
+        .mypic {
+            width: 100%;
+            height: 200px;
 
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1601024445121-e5b82f020549?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80');
+            background-position: center;
+            background-size: cover;
 
+            color: white;
 
-.css-icon1 {
-    --swiper-navigation-size: 12px;
-    --swiper-theme-color: #007aff;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: top;
-    user-select: none;
-    display: inline-block;
-    width: 10%;
-    height: 10%;
-    pointer-events: none;
-}
-.css-icon3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-}
-</style>
+        .mypic>h1 {
+            font-size: 30px;
+        }
+
+        .mybox {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px lightblue;
+            margin: 20px auto;
+        }
+
+        .mybucket {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mybucket>input {
+            width: 70%;
+        }
+
+        .mybox>li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybox>li>h2 {
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybox>li>h2.done {
+            text-decoration: line-through
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            show_main_index();
+        });
+        function show_main_index() {
+            $.ajax({
+                type: "GET",
+                url: "/main",
+                data: {},
+                success: function (response) {
+                    console.log(response['navers'])
+                    let rows = response['navers']
+                    for (let i = 0; i < rows.length; i++) {
+                        let main_title_give = rows[i]['main_title_give']
+                        let main_views_give = rows[i]['main_views_give']
+                        let temp_html = `
+                                        <li>
+                                        <h2>✅ ${main_title_give}${main_views_give}</h2>
+                                        </li>
+                                        `  
+                        $('#bucket-list').append(temp_html)
+                    }
+                }
+            });
+        }
+        // function save_bucket(){
+        // $.ajax({
+        // type: "POST",
+        // url: "/bucket",
+        // data: {bucket_give:'데이터전송'},
+        // success: function (response) {
+        // alert(response["msg"])
+        // }
+        // });
+        // }
+        // function done_bucket(num) {
+            // $.ajax({
+                // type: "POST",
+                // url: "/bucket/done",
+                // data: { bucket_give: '데이터전송' },
+                // success: function (response) {
+                    // alert(response["msg"])
+                // }
+            // });
+        // }
+    </script>
 </head>
+
 <body>
-<div class="mytitle">
-<h1>테스트</h1>
-<h3>테스트</h3>
-</div>
-<div class="idpw"> <!--(3)-->
-<p> ID : <input class="myinput" type="text"></p> <!--(1),(2)-->
-<p> PW : <input class="myinput" type="password"></p> <!--(1),(2)-->
-</div>
-<button class="mybtn">테스트</button>
-
-<!-- views_give(조회수) -->
-<div>
-    <div>
-        <img src="https://static.manhwakyung.com/profiles/90/profile-90-002-5153bb63.jpg?q=100" class="css-icon1">
-        조회수(views_give)
-    </div>    
-</div>
-<!-- image(사진) -->
-<div class="css-0 e1biafsk2">
-    <div width="224" height="224" class="css-ejqyrq">
-        <img src="https://user-img.manhwakyung.com/posts/7c9c752e-000-3dbd16bf.png" width="224" height="224">
-        사진(image)
+    <div class="mypic">
+        <h1>나의 버킷리스트</h1>
     </div>
-</div>
-<!-- title_give(웹툰명) -->
-<div>
-    <span>스피릿 핑거스(title_give)</span>
-</div>
-<!-- genre_give(장르) -->
-<div class="css-icon3">
-    <div style="white-space: pre-wrap; height: 100%;">
-        <span style="color: rgb(60, 130, 250);">#장르(genre_give)</span>
-        <span> </span>
-        <span style="color: rgb(60, 130, 250);">#밀리터리</span>
-        <span> </span>
-        <span style="color: rgb(60, 130, 250);">#로맨스</span>
+    <div class="mybox">
+        <div class="mybucket">
+            <input id="bucket" class="form-control" type="text" placeholder="이루고 싶은 것을 입력하세요">
+            <button onclick="save_bucket()" type="button" class="btn btn-outline-primary">기록하기</button>
+        </div>
     </div>
-</div>
-<!-- one_line(한줄요약) -->
-<div>
-    <p>"평범한 여고생, 알록달록 이상한 그림모임에 들어가다!(one_line)
-        <br>
-        "나만의 색을 찾아 떠나는 모험 이야기!"
-    </p>
-
-</div>
-
-<button>보러가기</button>
-
+    <div class="mybox" id="bucket-list">
+        
+    </div>
 </body>
 
-
 </html>
-
-
