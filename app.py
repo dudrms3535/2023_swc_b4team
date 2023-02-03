@@ -3,7 +3,7 @@ app = Flask(__name__)
 from pymongo import MongoClient
 import certifi
 ca = certifi.where()
-client = MongoClient('mongodb+srv://dudrms3535:dudrms22@cluster0.ktigoqn.mongodb.net/test', tlsCAFile=ca)
+client = MongoClient('mongodb+srv://dudrms3535:<패스워드>@cluster0.ktigoqn.mongodb.net/test', tlsCAFile=ca)
 db = client.sparta
 import requests
 from bs4 import BeautifulSoup
