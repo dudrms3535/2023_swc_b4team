@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script language="JavaScript">
+        <!--
+            $(document).ready(function() {
+                var $banner = $(".banner").find("ul");
+        
+                var $bannerWidth = $banner.children().outerWidth();//이미지의 폭
+                var $bannerHeight = $banner.children().outerHeight(); // 높이
+                var $length = $banner.children().length;//이미지의 갯수
+                var rollingId;
+        
+                //정해진 초마다 함수 실행
+                rollingId = setInterval(function() { rollingStart(); }, 3000);//다음 이미지로 롤링 애니메이션 할 시간차
+            
+                function rollingStart() {
+                    $banner.css("width", $bannerWidth * $length + "px");
+                    $banner.css("height", $bannerHeight + "px");
+                    //alert(bannerHeight);
+                    //배너의 좌측 위치를 옮겨 준다.
+                    $banner.animate({left: - $bannerWidth + "px"}, 1500, function() { //숫자는 롤링 진행되는 시간이다.
+                        //첫번째 이미지를 마지막 끝에 복사(이동이 아니라 복사)해서 추가한다.
+                        $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+                        //뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
+                        $(this).find("li:first").remove();
+                        //다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+                        $(this).css("left", 0);
+                        //이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+                    });
+                }
+            }); 
+        //-->  
+    </script>
+
+    <title>올웹툰랭킹</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Jua', sans-serif;
+        }
+        .mytitle {
+            width: 100%;
+            height: 300px;
+
+            background-image: url('https://colorate.azurewebsites.net/SwatchColor/FFA500');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mytitle > button {
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: white;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            margin-top: 10px;
+        }
+
+        .mytitle > button:hover {
+            border: 2px solid white;
+        }
+
+        .mycards {
+            margin: 10px auto 5px auto;
+            width: 95%;
+            max-width: 1500px;
+        }
+
+        .card-text {
+            width: 430px;
+            font-size: 15px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .btn {
+            width: 100px;
+            margin: auto;
+            display: block;
+        }
+
+        .banner {position: relative; width: 340px; height: 210px; top: 50px;  
+            margin:0 auto; padding:0; overflow: hidden;
+        }
+	    .banner ul {position: absolute; margin: 0px; padding:0; list-style: none; }
+	    .banner ul li {float: left; width: 340px; height: 210px; margin:0; padding:0;}
+
+        .card-img-top{
+            width: 450px;
+            height: 650px;
+            object-fit: cover;
+            /* align-self: center; */
+        }
+
+
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="MainLogo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#targetNaver">네이버</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#targetKakao">카카오</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#targetManhwakyung">만화경</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="mytitle">
+      <h1>올웹툰랭킹</h1>
+  </div>
+
+    <div class="contents">
+
+        <h3>롤링 배너 만들기 </h3>
+
+            <div class="banner">
+                <ul>
+                    <li><img src="https://cdn.pixabay.com/photo/2016/02/01/16/10/eye-1173863__340.jpg" width="340" height="210px"></li>
+                    <li><img src="https://cdn.pixabay.com/photo/2017/12/30/13/25/portrait-3050076__340.jpg" width="340" height="210px"></li>
+                    <li><img src="https://cdn.pixabay.com/photo/2015/07/09/22/45/tree-838667__340.jpg" width="340" height="210px"></li>
+                    <li><img src="https://cdn.pixabay.com/photo/2016/03/05/20/01/art-1238602__340.jpg" width="340" height="210px"></li>
+                    <li><img src="https://cdn.pixabay.com/photo/2015/07/31/15/01/guitar-869217__340.jpg" width="340" height="210px"></li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <br>
+
+    </div>
+
+  <div>
+    <br>
+      <a name="targetNaver"><h1>네이버웹툰</h1></a>
+      <hr>
+      *네이버 웹툰은 조회수를 제공하지 않아 조회순만 제공됩니다.
+    <div class="mycards">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="http://locus.com/wp-content/uploads/2020/10/yumi_poster2.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">[드라마원작] 유미의 세포들</h5>
+                        <p class="card-text">유미는 지금 무슨 생각을 하고 있을까? 그녀의 머릿속에서 바쁘게 움직이는 세포들 이야기!</p>
+                        <button type="button" class="btn btn-primary" onclick="location.href='detail.html'">보러가기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://shared-comic.pstatic.net/thumb/webtoon/609480/thumbnail/title_thumbnail_20140120160807_t83x90.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">하이브 1~2</h5>
+                        <p class="card-text">거대해진 곤충들이 인간을 습격한다!
+                            원시시대로 돌아간 지구의 대기상태</p>
+                        <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="http://locus.com/wp-content/uploads/2020/10/yumi_poster2.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">[드라마원작] 유미의 세포들</h5>
+                        <p class="card-text">유미는 지금 무슨 생각을 하고 있을까? 그녀의 머릿속에서 바쁘게 움직이는 세포들 이야기!</p>
+                        <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div>
+    <a name="targetKakao"><h1>카카오웹툰</h1></a>
+  <hr>
+  <div class="mycards">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://dn-img-page.kakao.com/download/resource?kid=dfOe4q/hyQ9U0uxcx/U6ABKyVOssMiQy1KQK1ylK&filename=th3"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">극한견주</h5>
+                      <p class="card-text">대형견과의 안락한 삶을 꿈꿨다. 듬직한 대형견과의 산책. 반려견 동반 카페에서의 따뜻한 커피 한 잔. 폭신한 침대에서 함께 나란히 자고 일어나는 하루하루… BUT 그러나 현실은 달랐다! 대형견 솜이와의 전쟁 같은 하이퍼 리얼리즘 라이프!</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://dn-img-page.kakao.com/download/resource?kid=dfOe4q/hyQ9U0uxcx/U6ABKyVOssMiQy1KQK1ylK&filename=th3"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">극한견주</h5>
+                      <p class="card-text">대형견과의 안락한 삶을 꿈꿨다. 듬직한 대형견과의 산책. 반려견 동반 카페에서의 따뜻한 커피 한 잔. 폭신한 침대에서 함께 나란히 자고 일어나는 하루하루… BUT 그러나 현실은 달랐다! 대형견 솜이와의 전쟁 같은 하이퍼 리얼리즘 라이프!</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://dn-img-page.kakao.com/download/resource?kid=dfOe4q/hyQ9U0uxcx/U6ABKyVOssMiQy1KQK1ylK&filename=th3"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">극한견주</h5>
+                      <p class="card-text">대형견과의 안락한 삶을 꿈꿨다. 듬직한 대형견과의 산책. 반려견 동반 카페에서의 따뜻한 커피 한 잔. 폭신한 침대에서 함께 나란히 자고 일어나는 하루하루… BUT 그러나 현실은 달랐다! 대형견 솜이와의 전쟁 같은 하이퍼 리얼리즘 라이프!</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </div>
+  </div>
+
+  <div>
+    <a name="targetManhwakyung"><h1>만화경</h1></a>
+  <hr>
+  <div class="mycards">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://static.manhwakyung.com/title/baristacat/thumbnail/baristacat-cover-98c539a1.png"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">바리스타냥</h5>
+                      <p class="card-text">시즌2로 돌아온 광냥이에게 또 무슨 일이 펼쳐질까요? 커피 없이 못 사는 광냥이와 광냥이가 만들어준 커피 없인 못 사는 단골손님들의 이야기</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://static.manhwakyung.com/title/baristacat/thumbnail/baristacat-cover-98c539a1.png"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">바리스타냥</h5>
+                      <p class="card-text">시즌2로 돌아온 광냥이에게 또 무슨 일이 펼쳐질까요? 커피 없이 못 사는 광냥이와 광냥이가 만들어준 커피 없인 못 사는 단골손님들의 이야기</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+          <div class="col">
+              <div class="card h-100">
+                  <img src="https://static.manhwakyung.com/title/baristacat/thumbnail/baristacat-cover-98c539a1.png"
+                      class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">바리스타냥</h5>
+                      <p class="card-text">시즌2로 돌아온 광냥이에게 또 무슨 일이 펼쳐질까요? 커피 없이 못 사는 광냥이와 광냥이가 만들어준 커피 없인 못 사는 단골손님들의 이야기</p>
+                      <button type="button" class="btn btn-outline-dark">자세히 보기</button>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </div>
+  </div>
+
+</body>
+</html>
+</html>
