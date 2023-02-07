@@ -63,7 +63,7 @@
 
 
         #dtl {
-/*            background-color: yellow;*/
+            /*            background-color: yellow;*/
 
             width: auto;
             height: 300px;
@@ -71,7 +71,7 @@
         }
 
         .w30 {
-/*            background-color: red;*/
+            /*            background-color: red;*/
             width: 30%;
             height: 100%;
             float: left;
@@ -79,20 +79,24 @@
         }
 
         .w30 > img {
-            height: 300px;
+            width: 210px;
+            height: 278px;
+            object-fit: cover;
+
         }
 
         .w70 {
-/*            background-color: orange;*/
+            /*            background-color: orange;*/
             width: 70%;
             height: 100%;
             float: right;
         }
 
         .h20 {
-/*            background-color: cornflowerblue;*/
+            /*            background-color: cornflowerblue;*/
             width: 60%;
             height: 25%;
+            padding: 10px;
 
             display: flex;
             flex-direction: row;
@@ -107,58 +111,59 @@
 
         .h40 {
             width: 60%;
-/*            background-color: gray;*/
+            /*            background-color: gray;*/
             height: 75%;
             padding: 10px;
         }
 
         /*서우 */
-        .comiccmt{
+        .comiccmt {
             padding-left: 180px;
             padding-right: 180px;
         }
-        .thumb{
-          position: relative;
-          margin-bottom: 3px;
-          float: left;
-          margin-right: 15px;
-          
+
+        .thumb {
+            position: relative;
+            margin-bottom: 3px;
+            float: left;
+            margin-right: 15px;
+
         }
+
         .detail {
-          float: left;
-          width: 554px;
+            float: left;
+            width: 554px;
         }
 
         .go1btn {
-          float: right;
-          margin-right: 45px;
+            float: right;
+            padding: 25px 0px 0px 0px;
         }
 
-        .tg{
-          margin-top: 100px;
-          flex: 1;
-          width: 100%;
-          table-layout: fixed;
+        .tg {
+            margin-top: 100px;
+            flex: 1;
+            width: 100%;
+            table-layout: fixed;
         }
 
-        .title{
-          margin-right: 7px;
+        .title {
+            margin-right: 7px;
         }
 
-        .wrt_nm , .tgg{
-          display: inline-block;
-         margin-right: 4px;
-         font-size: 12px;
-         color: #434343;
-          font-weight: normal;
-         vertical-align: middle;
-        }
-        
-        .tgg{
-          float: right;
-          margin-right: 45px;
+        .wrt_nm, .tgg {
+            display: inline-block;
+            margin-right: 4px;
+            font-size: 12px;
+            color: #434343;
+            font-weight: normal;
+            vertical-align: middle;
         }
 
+        .tgg {
+            float: right;
+            margin-right: 45px;
+        }
 
 
     </style>
@@ -166,7 +171,7 @@
 
 <body>
 <div class="webtoon">
-    <h4 class="title">타이틀</h4>
+    <h2 class="title">타이틀</h2>
     <h6 class="artist">작가명</h6>
     <h6 class="genre">장르</h6>
 </div>
@@ -186,31 +191,40 @@
 
 <!-- 서우 -->
 
-<div class="comiccmt" style="padding-top: 30px;">
-    <h3> 1화 BEST 댓글 보기</h3>
+<div class="comiccmt" style="padding-top: 50px;">
+    <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4>
 
     <div class="thumb">
-      <a href="https://comic.naver.com/webtoon/detail?titleId=609480&no=1"><img src="https://shared-comic.pstatic.net/thumb/webtoon/609480/1/inst_thumbnail_20140120183628.jpg"></a>
+        <a href="https://comic.naver.com/webtoon/detail?titleId=609480&no=1"><img
+                src="https://shared-comic.pstatic.net/thumb/webtoon/609480/1/inst_thumbnail_20140120183628.jpg"></a>
 
     </div>
     <div class="detail">
-      <h5>프롤로그</h5>
+        <h5 style="padding: 30px 0px 0px 20px;">프롤로그</h5>
     </div>
 
     <div class="go1btn">
-      <button type="button" class="btn btn-dark"  onclick="location.href='https://comic.naver.com/webtoon/detail?titleId=609480&no=1'">자세히 보기</button>
+        <button type="button" class="btn btn-dark"
+                onclick="location.href='https://comic.naver.com/webtoon/detail?titleId=609480&no=1'">자세히 보기
+        </button>
     </div>
-    
+
     <br>
 
-    <table class="tg" >
-      <thead>
-        <tr >
-          <td class="tg-0lax"><img src="static/best_btn.png" height="15">아, 몰라 됏고 상대는 김규삼이야<br>2014-01-20 23:25<br><br>좋아요 16446</td>
-          <td class="tg-0lax"><img src="static/best_btn.png" height="15">조의 영역 육지 버전<br>2014-01-20 23:42<br><br>좋아요 14983</td>
-          <td class="tg-0lax"><img src="static/best_btn.png" height="15">그냥 내리다가 신작이어서 놀라고 김규삼에서 또 놀란 사람 손<br>2014-01-20 23:26<br><br>좋아요 10907</td>
+    <table class="tg">
+        <thead>
+        <tr>
+            <td class="tg-0lax"><img src="static/best_btn.png" height="15" style="padding-right: 10px;">아, 몰라 됏고 상대는 김규삼이야<br>2014-01-20
+                23:25<br><br>좋아요 16446
+            </td>
+            <td class="tg-0lax"><img src="static/best_btn.png" height="15" style="padding-right: 10px;">조의 영역 육지 버전<br>2014-01-20 23:42<br><br>좋아요
+                14983
+            </td>
+            <td class="tg-0lax"><img src="static/best_btn.png" height="15" style="padding-right: 10px;">그냥 내리다가 신작이어서 놀라고 김규삼에서 또 놀란 사람 손<br>2014-01-20
+                23:26<br><br>좋아요 10907
+            </td>
         </tr>
-      </thead>
+        </thead>
     </table>
 </div>
 </body>
