@@ -112,6 +112,54 @@
             padding: 10px;
         }
 
+        /*서우 */
+        .comiccmt{
+            padding-left: 180px;
+            padding-right: 180px;
+        }
+        .thumb{
+          position: relative;
+          margin-bottom: 3px;
+          float: left;
+          margin-right: 15px;
+          
+        }
+        .detail {
+          float: left;
+          width: 554px;
+        }
+
+        .go1btn {
+          float: right;
+          margin-right: 45px;
+        }
+
+        .tg{
+          margin-top: 100px;
+          flex: 1;
+          width: 100%;
+          table-layout: fixed;
+        }
+
+        .title{
+          margin-right: 7px;
+        }
+
+        .wrt_nm , .tgg{
+          display: inline-block;
+         margin-right: 4px;
+         font-size: 12px;
+         color: #434343;
+          font-weight: normal;
+         vertical-align: middle;
+        }
+        
+        .tgg{
+          float: right;
+          margin-right: 45px;
+        }
+
+
 
     </style>
 </head>
@@ -136,6 +184,35 @@
     </div>
 </div>
 
+<!-- 서우 -->
+
+<div class="comiccmt" style="padding-top: 30px;">
+    <h3> 1화 BEST 댓글 보기</h3>
+
+    <div class="thumb">
+      <a href="https://comic.naver.com/webtoon/detail?titleId=609480&no=1"><img src="https://shared-comic.pstatic.net/thumb/webtoon/609480/1/inst_thumbnail_20140120183628.jpg"></a>
+
+    </div>
+    <div class="detail">
+      <h5>프롤로그</h5>
+    </div>
+
+    <div class="go1btn">
+      <button type="button" class="btn btn-dark"  onclick="location.href='https://comic.naver.com/webtoon/detail?titleId=609480&no=1'">자세히 보기</button>
+    </div>
+    
+    <br>
+
+    <table class="tg" >
+      <thead>
+        <tr >
+          <td class="tg-0lax"><img src="static/best_btn.png" height="15">아, 몰라 됏고 상대는 김규삼이야<br>2014-01-20 23:25<br><br>좋아요 16446</td>
+          <td class="tg-0lax"><img src="static/best_btn.png" height="15">조의 영역 육지 버전<br>2014-01-20 23:42<br><br>좋아요 14983</td>
+          <td class="tg-0lax"><img src="static/best_btn.png" height="15">그냥 내리다가 신작이어서 놀라고 김규삼에서 또 놀란 사람 손<br>2014-01-20 23:26<br><br>좋아요 10907</td>
+        </tr>
+      </thead>
+    </table>
+</div>
 </body>
 
 </html>
