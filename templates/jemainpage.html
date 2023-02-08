@@ -87,6 +87,7 @@
         $(document).ready(function () {
             show_main_index();
             show_thumbnail_index();
+            show_toptoon_index();
         });
         function show_main_index() {
             $.ajax({
@@ -113,8 +114,7 @@
                                                             <p class="card-genre">${kakao_kakao_author_give}</p>
                                                             <p>⭐⭐⭐</p>
                                                             <p class="card-story">${kakao_kakao_summary_give}</p>
-                                                            <button type="button" class="btn btn-dark"  onclick="location.href='/templates/detail.html'">자세히 보기</button>
-                                                            <a href="/templates/detail.html">보러가기 버튼</a>
+                                                            <button type="button" class="btn btn-dark"  onclick="location.href='/static/detail.html'">자세히 보기</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -125,6 +125,20 @@
             });
         }
 
+
+
+
+
+
+
+        function logo_info(){
+            for(var i=1; i<=3; i++) {
+                if(user_area == i) {
+                img_src = '../static/rank'+ i + '.png';
+                }
+            }
+            return img_src;
+        }
         function show_thumbnail_index() {
             $.ajax({
                 type: "GET",
@@ -138,13 +152,14 @@
                         let img_url_give = rows[i]['img_url']
                         let temp_html = `<div class="col">
                                     <div class="card">
-                                     <img src="static/rank1.png" class="card-rank">
+                                        
+                                     <img src=logo_info() class="card-rank">
                                       <img src="${img_url_give}"
                                        class="card-img-top" alt="...">
                                         <div class="card-body">
                                          <h5 class="card-title">${title_give}</title></h5>
                                          <p class="card-genre">장르</p>
-                                         <p>⭐⭐⭐</p>
+                                         <p>:별::별::별:</p>
                                          <p class="card-story">줄거리~~~~</p>
                                     <button type="button" class="btn btn-dark">자세히 보기</button>
                                    </div>
@@ -155,12 +170,104 @@
                 }
             });
         }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // function show_thumbnail_index() {
+            // $.ajax({
+                // type: "GET",
+                // url: "/thumbnail",
+                // data: {},
+                // success: function (response) {
+                    // console.log(response['thumbnails'])
+                    // let rows = response['thumbnails']
+                    // for (let i = 0; i < 1; i++) {
+                        // let title_give = rows[i]['title']
+                        // let img_url_give = rows[i]['img_url']
+                        // let temp_html = `
+                                        // <div class="col">
+                                            // <div class="card">
+                                                // <img src="static/rank3.png" class="card-rank">
+                                            // <img src="${img_url_give}"
+                                            // class="card-img-top" alt="...">
+                                                // <div class="card-body">
+                                                // <h5 class="card-title">${title_give}</title></h5>
+                                        // <p class="card-genre">장르</p>
+                                        // <p>⭐⭐⭐</p>
+                                        // <p class="card-story">줄거리~~~~</p>
+                                    // <button type="button" class="btn btn-dark">자세히 보기</button>
+                                //    </div>
+                                //   </div>
+                                //  </div>
+                                //  `
+                        // $('#cards-box').append(temp_html)
+                    // }
+                // }
+            // });
+        // }
+
+
+        function show_toptoon_index() {
+            $.ajax({
+                type: "GET",
+                url: "/toptoon",
+                data: {},
+                success: function (response) {
+                    console.log(response['toptoons'])
+                    let rows = response['toptoons']
+                    for (let i = 0; i < 3; i++) {
+                        let image_give = rows[i]['db_toptoon_image_give1']
+                        let title_give = rows[i]['db_toptoon_title_give1']
+                        let author_give = rows[i]['db_toptoon_author_give1']
+                        let genre_give = rows[i]['db_toptoon_genre_give1']
+                        let summary_give = rows[i]['db_toptoon_summary_give1']
+                        let temp_html =
+                            `
+                                    <div class="col">
+                                        <div class="card">
+                                            <img src="" class="card-rank">${genre_give}
+                                            <img src="${image_give}"
+                                            class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${title_give}</h5>
+                                                <p class="card-genre">${author_give}</p>
+                                                <p>⭐⭐⭐</p>
+                                                <p class="card-story">${summary_give}</p>
+                                                <button type="button" class="btn btn-dark"  onclick="location.href='/templates/detail.html'">자세히 보기</button>
+                                                <a href="/templates/detail.html">보러가기 버튼</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    `
+                        $('#toptoon_cards-box').append(temp_html)
+                    }
+                }
+            });
+        }
 
 
     </script>
 </head>
 
 <body>
+    
 
     <div class="mytitle">
         <h1>올 웹툰 랭킹</h1>
@@ -168,8 +275,8 @@
     </div>
     <div>
         <div class="webtoonbrd">
-        <img src="../static/naver.png">
-        <h4>네이버 웹툰</h4>
+            <img src="../static/naver.png">
+            <h4>네이버 웹툰</h4>
         </div>
         <h6 class="naver">※ 네이버 웹툰은 조회수를 제공하지 않아 조회순만 제공됩니다.</h6>
         <div class="wrap">
@@ -179,67 +286,31 @@
     </div>
     <div class="webtoonbrd">
         <img src="../static/kakao.png">
-        <!-- 이부분 사진 변경 필요 -->
         <h4>카카오 웹툰</h4>
     </div>
     <div class="wrap">
         <div id="kakao_cards-box" class="row row-cols-1 row-cols-md-3 g-3">
         </div>
     </div>
-    <div>
-        <!-- <div class="webtoonbrd"> -->
-        <!-- <img src="../static/toptoon.png"> -->
-        <!-- <h4>탑툰</h4> -->
-        <!-- </div> -->
-        <!-- <div class="wrap"> -->
-        <!-- <div id="cards-box" class="row row-cols-1 row-cols-md-3 g-3"> -->
-        <!-- <div class="col"> -->
-        <!-- <div class="card"> -->
-        <!-- <img src="../static/rank1.png" class="card-rank"> -->
-        <!-- <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg" -->
-        <!-- class="card-img-top" alt="..."> -->
-        <!-- <div class="card-body"> -->
-        <!-- <h5 class="card-title">웹툰명</h5> -->
-        <!-- <p class="card-genre">장르</p> -->
-        <!-- <p>⭐⭐⭐</p> -->
-        <!-- <p class="card-story">줄거리~~~~</p> -->
-        <!-- <button type="button" class="btn btn-dark">자세히 보기</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- <div class="col"> -->
-        <!-- <div class="card"> -->
-        <!-- <img src="../static/rank2.png" class="card-rank"> -->
-        <!-- <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg" -->
-        <!-- class="card-img-top" alt="..."> -->
-        <!-- <div class="card-body"> -->
-        <!-- <h5 class="card-title">웹툰명</h5> -->
-        <!-- <p class="card-genre">장르</p> -->
-        <!-- <p>⭐⭐⭐</p> -->
-        <!-- <p class="card-story">줄거리~~~~</p> -->
-        <!-- <button type="button" class="btn btn-dark">자세히 보기</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- <div class="col"> -->
-        <!-- <div class="card"> -->
-        <!-- <img src="../static/rank3.png" class="card-rank"> -->
-        <!-- <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg" -->
-        <!-- class="card-img-top" alt="..."> -->
-        <!-- <div class="card-body"> -->
-        <!-- <h5 class="card-title">웹툰명</h5> -->
-        <!-- <p class="card-genre">장르</p> -->
-        <!-- <p>⭐⭐⭐</p> -->
-        <!-- <p class="card-story">줄거리~~~~</p> -->
-        <!-- <button type="button" class="btn btn-dark">자세히 보기</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- <p> </p> -->
-        <!-- </div> -->
+    <div class="webtoonbrd">
+        <img src="../static/toptoon.png">
+        <h4>탑툰</h4>
     </div>
-    <div class="mybox" id="bucket-list">
+    <div class="wrap">
+        <div id="toptoon_cards-box" class="row row-cols-1 row-cols-md-3 g-3">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

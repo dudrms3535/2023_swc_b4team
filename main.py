@@ -14,6 +14,8 @@ from bs4 import BeautifulSoup
 
 
 
+
+# 카카오 페이지 웹툰
 # driver = webdriver.Chrome(executable_path="chromedriver")
 # url = 'https://page.kakao.com/content/47686939?tab_type=about'
 # driver.get(url)
@@ -60,9 +62,6 @@ from bs4 import BeautifulSoup
 
 
 
-
-
-
 @app.route('/')
 def home():
    return render_template('jemainpage.html')
@@ -76,6 +75,17 @@ def naver_main_get():
 def naver_thumbnails_get():
     naver_main_sparta_api = list(db.naverthumbnails.find({}, {'_id':False}))
     return jsonify({'thumbnails': naver_main_sparta_api})
+
+@app.route("/toptoon", methods=["GET"])
+def toptoon_thumbnails_get():
+    toptoon_main_sparta_api = list(db.toptoonmain.find({}, {'_id':False}))
+    return jsonify({'toptoons': toptoon_main_sparta_api})
+
+@app.route("/detail", methods=["GET"])
+def detail_NVComment_get():
+    detail_NVComment_api = list(db.NVComment.find({}, {'_id':False}))
+    return jsonify({'details1': detail_NVComment_api})
+
 
 
 if __name__ == '__main__':
