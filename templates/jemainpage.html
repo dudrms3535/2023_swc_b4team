@@ -115,7 +115,7 @@
                     console.log(response['navers'])
                     let rows = response['navers']
                     for (let i = 0; i < rows.length; i++) {
-                        let kakao_kakao_rank_give = rows[i]['db_kakao_image_rank']
+                        let kakao_kakao_rank_give = '../static/rank'+ (i+1) + '.png'
                         let kakao_kakao_image_give = rows[i]['db_kakao_image_give1']
                         let kakao_kakao_title_give = rows[i]['db_kakao_title_give1']
                         let kakao_kakao_author_give = rows[i]['db_kakao_author_give1']
@@ -124,13 +124,13 @@
                         let temp_html = `
                                                 <div class="col">
                                                     <div class="card">
-                                                        <img src="${kakao_kakao_rank_give}" class="card-rank">${kakao_kakao_genre_give}
+                                                        <img src="${kakao_kakao_rank_give}" class="card-rank">
                                                         <img src="${kakao_kakao_image_give}"
                                                             class="card-img-top" alt="...">
                                                         <div class="card-body">
                                                             <h5 class="card-title">${kakao_kakao_title_give}</h5>
                                                             <p class="card-genre">${kakao_kakao_author_give}</p>
-                                                            <p>⭐⭐⭐</p>
+                                                            <p>조회수 ${kakao_kakao_genre_give}</p>
                                                             <p class="card-story">${kakao_kakao_summary_give}</p>
                                                             <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">자세히 보기</button>
                                                         </div>
@@ -168,6 +168,8 @@
                                          <p>:별::별::별:</p>
                                          <p class="card-story">줄거리~~~~</p>                                 
                                          <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">자세히 보기</button>
+
+                                        
                                    </div>
                                   </div>
                                  </div>`
@@ -239,6 +241,7 @@
                     console.log(response['toptoons'])
                     let rows = response['toptoons']
                     for (let i = 0; i < 3; i++) {
+                        let img_rank = '../static/rank'+ (i+1) + '.png'
                         let image_give = rows[i]['db_toptoon_image_give1']
                         let title_give = rows[i]['db_toptoon_title_give1']
                         let author_give = rows[i]['db_toptoon_author_give1']
@@ -248,13 +251,14 @@
                             `
                                     <div class="col">
                                         <div class="card">
-                                            <img src="" class="card-rank">${genre_give}
+                                            <img src="${img_rank}" class="card-rank">     
+                                            <img src="" class="card-rank">
                                             <img src="${image_give}"
                                             class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">${title_give}</h5>
                                                 <p class="card-genre">${author_give}</p>
-                                                <p>⭐⭐⭐</p>
+                                                <p>${genre_give}</p>
                                                 <p class="card-story">${summary_give}</p>
                                                 <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">자세히 보기</button>
                                             </div>
@@ -283,15 +287,15 @@
             <img src="../static/naver.png">
             <h4>네이버 웹툰</h4>
         </div>
-        <h6 class="naver">※ 네이버 웹툰은 조회수를 제공하지 않아 조회순만 제공됩니다.</h6>
+        
         <div class="wrap">
             <div id="cards-box" class="row row-cols-1 row-cols-md-3 g-3">
             </div>
         </div>
     </div>
     <div class="webtoonbrd">
-        <img src="../static/kakao.png">
-        <h4>카카오 웹툰</h4>
+        <img src="../static/kakao2.png">
+        <h4>카카오 페이지</h4>
     </div>
     <div class="wrap">
         <div id="kakao_cards-box" class="row row-cols-1 row-cols-md-3 g-3">

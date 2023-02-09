@@ -19,9 +19,9 @@ from bs4 import BeautifulSoup
 # driver = webdriver.Chrome(executable_path="chromedriver")
 # url = 'https://page.kakao.com/content/47686939?tab_type=about'
 # driver.get(url)
-# 
+#  
 # headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-# 
+#  
 # kakao_main_soup1 = BeautifulSoup(driver.page_source, 'html.parser')
 # kakao_mains1 = kakao_main_soup1.select('#__next > div > div.flex.w-full.grow.flex-col.px-122pxr')
 # for kakao_main1 in kakao_mains1:
