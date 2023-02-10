@@ -89,7 +89,7 @@
             color: gray;
             display: -webkit-box ;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             overflow: hidden;
         }
 
@@ -166,6 +166,7 @@
                         let kakao_kakao_author_give = rows[i]['db_kakao_author_give1']
                         let kakao_kakao_genre_give = rows[i]['db_kakao_genre_give1']
                         let kakao_kakao_summary_give = rows[i]['db_kakao_summary_give1']
+                        let kakao_kakao_button_give = rows[i]['db_kakao_button_give1']
                         let temp_html = `
                                                 <div class="col">
                                                     <div class="card">
@@ -177,7 +178,7 @@
                                                             <p class="card-genre">${kakao_kakao_author_give}</p>
                                                             <p><span class="views">조회수 ${kakao_kakao_genre_give}</span></p>
                                                             <p class="card-story">${kakao_kakao_summary_give}</p>
-                                                            <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">왕의 딸로 태어났다고 합니다 의 모든 것</button>
+                                                            <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">${kakao_kakao_button_give}</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,6 +206,7 @@
                         let main_thumb_give = rows[i]['main_thumb']
                         let topic_give = rows[i]['topic']
                         let summary_give = rows[i]['summary']
+                        let button_give = rows[i]['button']
                         let temp_html = `<div class="col">
                                             <div class="card">
                                              <img src="${kakao_kakao_rank_give}" class="card-rank">
@@ -214,7 +216,7 @@
                                                  <h5 class="card-title">${title_give}</title></h5>
                                                  <p class="card-genre">${topic_give}</p>
                                                  <p class="card-story">${summary_give}</p>
-                                                <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">윰세의 모든 것</button>
+                                                <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">${button_give}</button>
                                    </div>
                                   </div>
                                  </div>`
@@ -292,6 +294,7 @@
                         let author_give = rows[i]['db_toptoon_author_give1']
                         let genre_give = rows[i]['db_toptoon_genre_give1']
                         let summary_give = rows[i]['db_toptoon_summary_give1']
+                        let button_give = rows[i]['db_toptoon_button_give1']
                         let temp_html =
                             `
                                     <div class="col">
@@ -305,7 +308,7 @@
                                                 <p class="card-genre">${author_give}</p>
                                                 <p><span class="subs">${genre_give}</p>
                                                 <p class="card-story">${summary_give}</p>
-                                                <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">청소부 K의 모든 것</button>
+                                                <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">${button_give}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -358,7 +361,7 @@
         </div>
     </div>
     <div class="webtoonbrd">
-        <img src="../static/kakao2.png">
+        <img src="../static/kakao.png">
         <h4>카카오 페이지</h4>
     </div>
         <h6 class ="kakao">로맨스가 필요한 당신, 지금 카카오페이지에서 사랑을 충전하세요!</h6>
