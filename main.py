@@ -81,7 +81,7 @@ def toptoon_thumbnails_get():
     toptoon_main_sparta_api = list(db.toptoonmain.find({}, {'_id':False}))
     return jsonify({'toptoons': toptoon_main_sparta_api})
 
-@app.route("/detail", methods=["GET"])
+@app.route("/detail2", methods=["GET"])
 def naver_detail_get():
     naver_detail_sparta_api = list(db.naver_details.find({}, {'_id':False}))
     return jsonify({'naver_details': naver_detail_sparta_api})

@@ -186,12 +186,12 @@
         function show_detail_index() {
             $.ajax({
                 type: "GET",
-                url: "/detail",
+                url: "/detail2",
                 data: {},
                 success: function (response) {
                     console.log(response['naver_details'])
                     let rows = response['naver_details']
-                    for (let i = 0; i < rows.length; i++) {
+                    for (let i = 0; i < 1; i++) {
                         let title = rows[i]['title']
                         let author = rows[i]['author']
                         let topic = rows[i]['topic']
