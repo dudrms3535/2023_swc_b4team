@@ -233,6 +233,7 @@
                         let date_give = rows[i]['date']
                         let like_give = rows[i]['like']
                         let temp_html = `
+                        
                         <div class="comiccmt" style="padding-top: 50px;">
                             <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4>
 
@@ -266,6 +267,7 @@
                                 </thead>
                             </table>
                         </div>
+                        
                                         `
                         $('#detail_NVComment_cards-box').append(temp_html)
                     }
@@ -320,7 +322,7 @@
 </div>
 </div>
 
-    <!-- 서우 -->
+    <!-- 서우 
 
     <div class="comiccmt" style="padding-top: 50px;">
         <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4>
@@ -342,10 +344,10 @@
 
         <br>
 
-        <table class="tg" id="detail_NVComment_cards-box">
+    
             <thead>
                 <tr>
-                    <td class="tg-0lax"><img src="static/best_btn.png" height="15" style="padding-right: 10px;">아, 몰라 됏고
+                    <td class="tg-0lax"><img src="../static/best_btn.png" height="15" style="padding-right: 10px;">아, 몰라 됏고
                         상대는 김규삼이야<br>2014-01-20
                         23:25<br><br>좋아요 16446
                     </td>
@@ -361,6 +363,10 @@
             </thead>
         </table>
     </div>
+    -->
+
+    <table class="tg" id="detail_NVComment_cards-box"></table>
+
     <div class="comiccmt" style="padding-top: 50px;">
         <h4 style="padding-bottom: 20px;"> 블로그 후기보기</h4>
         <div style="display: flex; flex-direction: row;">
