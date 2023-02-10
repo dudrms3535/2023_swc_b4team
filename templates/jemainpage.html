@@ -22,7 +22,7 @@
             height: 500px;
             width: 100%;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../static/mainbanner.png");
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../static/mainbanner.png");
             background-position: center;
             background-size: cover;
 
@@ -37,7 +37,7 @@
 
         .webtoonbrd {
             /* background-color: green; */
-            
+
 
             height: 80px;
             width: 100%;
@@ -58,26 +58,14 @@
             margin-right: 10px;
         }
 
-        .card-story {
-            color: gray;
-            display: -webkit-box ;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-        }
-
-        
         .naver {
-            padding: 40px 600px 0px 0px;
+            padding: 10px 500px 0px 0px;
             justify-content: center;
             display: flex;
             flex-direction: row;
             align-items: center;
-            
+
         }
-
-        
-
 
         .kakao {
             padding: 10px 650px 0px 0px;
@@ -132,7 +120,6 @@
         .navbar {
             background-color: black;
             color: aquamarine;
-
         }
 
         .views {
@@ -142,7 +129,7 @@
         .subs {
             background: linear-gradient(to top, #ff0000 5%, transparent 40%)
         };
-
+      
 
 
     </style>
@@ -190,7 +177,7 @@
         }
 
 
-      
+
         function show_thumbnail_index() {
             $.ajax({
                 type: "GET",
@@ -199,22 +186,23 @@
                 success: function (response) {
                     console.log(response['thumbnails'])
                     let rows = response['thumbnails']
+
                     for (let i = 0; i < 3; i++) {
+                        let kakao_kakao_rank_give = '../static/rank'+ (i+1) + '.png'
                         let title_give = rows[i]['title']
-                        let img_url_give = rows[i]['img_url']
-                        let img_rank = '../static/rank'+ (i+1) + '.png'
+                        let main_thumb_give = rows[i]['main_thumb']
+                        let topic_give = rows[i]['topic']
+                        let summary_give = rows[i]['summary']
                         let temp_html = `<div class="col">
-                                    <div class="card">
-                                        <img src="${kakao_kakao_rank_give}" class="card-rank">
+                                            <div class="card">
+                                             <img src="${kakao_kakao_rank_give}" class="card-rank">
                                               <img src="${main_thumb_give}"
                                                class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                  <h5 class="card-title">${title_give}</title></h5>
                                                  <p class="card-genre">${topic_give}</p>
-                                                 <p class="card-story">${summary_give}</p>                            
-                                                 <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">윰세의 모든 것</button>
-
-                                        
+                                                 <p class="card-story">${summary_give}</p>
+                                         <button type="button" class="btn btn-dark"  location.href='../static/detail.html' onclick="window.open('../static/detail.html', '_blank'); ">윰세의 모든 것</button>
                                    </div>
                                   </div>
                                  </div>`
@@ -223,7 +211,7 @@
                 }
             });
         }
-        
+
 
 
 
@@ -296,7 +284,7 @@
                             `
                                     <div class="col">
                                         <div class="card">
-                                            <img src="${img_rank}" class="card-rank">     
+                                            <img src="${img_rank}" class="card-rank">
                                             <img src="" class="card-rank">
                                             <img src="${image_give}"
                                             class="card-img-top" alt="...">
@@ -322,7 +310,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" href="./jemainpage.html"><img src="../static/MainLogo_white.png"></a>
+        <a class="navbar-brand" href="./jemainpage.html" ><img src="../static/logo.png" width="100" style="margin-left: 10px;" ></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -352,7 +340,6 @@
         </div>
             <h6 class ="naver">인기드라마 원작부터 판타지까지, 국내 최대 콘텐츠 플랫폼 네이버 웹툰에서 만나보세요!</h6>
 
-        
         <div class="wrap">
             <div id="cards-box" class="row row-cols-1 row-cols-md-3 g-3">
             </div>
@@ -360,10 +347,9 @@
     </div>
     <div class="webtoonbrd">
         <img src="../static/kakao2.png">
-        <h4>카카오 웹툰</h4>
+        <h4>카카오 페이지</h4>
     </div>
         <h6 class ="kakao">로맨스가 필요한 당신, 지금 카카오페이지에서 사랑을 충전하세요!</h6>
-
     <div class="wrap">
         <div id="kakao_cards-box" class="row row-cols-1 row-cols-md-3 g-3">
         </div>
@@ -373,8 +359,6 @@
         <h4>탑툰</h4>
     </div>
         <h6 class ="toptoon">액션부터 일상까지, 성숙한 독자 여러분 탑툰에서 만나요! </h6>
-    
-
     <div class="wrap">
         <div id="toptoon_cards-box" class="row row-cols-1 row-cols-md-3 g-3">
         </div>
