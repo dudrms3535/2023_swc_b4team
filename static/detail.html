@@ -179,8 +179,46 @@
     </style>
     <script>
         $(document).ready(function () {
+            show_detail_index();
             show_detail_NVComment_index();
         });
+
+        function show_detail_index() {
+            $.ajax({
+                type: "GET",
+                url: "/detail",
+                data: {},
+                success: function (response) {
+                    console.log(response['naver_details'])
+                    let rows = response['naver_details']
+                    for (let i = 0; i < rows.length; i++) {
+                        let title = rows[i]['title']
+                        let author = rows[i]['author']
+                        let topic = rows[i]['topic']
+                        let main_thumb = rows[i]['main_thumb']
+                        let summary = rows[i]['summary']
+
+                        let temp_html = `<div class="webtoon">
+                                            <h4 class="title">${title}</h4>
+                                            <h6 class="author">${author}</h6>
+                                            <h6 class="topic">${topic}</h6>
+                                        </div>
+                                        <div id="dtl">
+                                            <div class="col w30">
+                                                <img src="${main_thumb}">
+                                            </div>
+                                            <div class="col w70">
+                                                <div class="row h40">${summary}</div>
+                                            </div>
+                                        </div>`
+                        $('#naver_detail_box').append(temp_html)
+
+                    }
+                }
+            })
+        }
+
+
         function show_detail_NVComment_index() {
             $.ajax({
                 type: "GET",
@@ -197,24 +235,24 @@
                         let temp_html = `
                         <div class="comiccmt" style="padding-top: 50px;">
                             <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4>
-                            
+
                             <div class="thumb">
                                 <a href="https://comic.naver.com/webtoon/detail?titleId=609480&no=1"><img
                                     src="https://shared-comic.pstatic.net/thumb/webtoon/609480/1/inst_thumbnail_20140120183628.jpg"></a>
-                        
+
                                 </div>
                                 <div class="detail">
                                     <h5 style="padding: 30px 0px 0px 20px;">프롤로그</h5>
                                 </div>
-                        
+
                                 <div class="go1btn">
                                     <button type="button" class="btn btn-dark"
                                     onclick="location.href='https://comic.naver.com/webtoon/detail?titleId=609480&no=1'">자세히 보기
                                 </button>
                             </div>
-                        
+
                             <br>
-                        
+
                             <table class="tg">
                                 <thead>
                                     <tr>
@@ -263,8 +301,8 @@
 
     <div class="webtoon">
         <h2 class="title">타이틀</h2>
-        <h6 class="artist">작가명</h6>
-        <h6 class="genre">장르</h6>
+        <h6 class="author">작가명</h6>
+        <h6 class="topic">장르</h6>
     </div>
     <div id="dtl">
         <div class="col w30">
