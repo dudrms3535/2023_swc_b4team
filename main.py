@@ -71,10 +71,11 @@ def naver_main_get():
     naver_main_sparta_api = list(db.kakaomain.find({}, {'_id':False}))
     return jsonify({'navers': naver_main_sparta_api})
 
+#naverdesc.py main -> thumbnail 로 변경
 @app.route("/thumbnail", methods=["GET"])
 def naver_thumbnails_get():
-    naver_main_sparta_api = list(db.naverthumbnails.find({}, {'_id':False}))
-    return jsonify({'thumbnails': naver_main_sparta_api})
+    naver_main_sparta_api = list(db.naver_details.find({}, {'_id':False}))
+    return jsonify({'navers': naver_main_sparta_api})
 
 @app.route("/toptoon", methods=["GET"])
 def toptoon_thumbnails_get():
@@ -85,6 +86,13 @@ def toptoon_thumbnails_get():
 def detail_NVComment_get():
     detail_NVComment_api = list(db.NVComment.find({}, {'_id':False}))
     return jsonify({'details1': detail_NVComment_api})
+
+#naverdesc.py main 
+#@app.route("/naver", methods=["GET"])
+#def naver_main_get():
+#    naver_main_sparta_api = list(db.naver_details.find({}, {'_id':False}))
+#    return jsonify({'navers': naver_main_sparta_api})
+
 
 
 
