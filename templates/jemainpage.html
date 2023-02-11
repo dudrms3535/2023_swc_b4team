@@ -109,6 +109,12 @@
         .navbar {
             background-color: black;
             color: aquamarine;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
         }
 
         .views {
@@ -327,7 +333,7 @@
               <a class="nav-link" href="#targetKakao">카카오</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#targetManhwakyung">탑툰</a>
+              <a class="nav-link" href="#targetToptoon">탑툰</a>
             </li>
           </ul>
         </div>
@@ -340,7 +346,7 @@
     <div>
         <div class="webtoonbrd">
             <img src="../static/naver.png">
-            <h4>네이버 웹툰</h4>
+            <h4><a name="targetNaver"></a>네이버 웹툰</h4>
         </div>
             <h6 class ="naver">인기드라마 원작부터 판타지까지, 국내 최대 콘텐츠 플랫폼 네이버 웹툰에서 만나보세요!</h6>
 
@@ -351,7 +357,7 @@
     </div>
     <div class="webtoonbrd">
         <img src="../static/kakao.png">
-        <h4>카카오 페이지</h4>
+        <h4><a name="targetKakao"></a>카카오 페이지</h4>
     </div>
         <h6 class ="kakao">로맨스가 필요한 당신, 지금 카카오페이지에서 사랑을 충전하세요!</h6>
     <div class="wrap">
@@ -360,7 +366,7 @@
     </div>
     <div class="webtoonbrd">
         <img src="../static/toptoon.png">
-        <h4>탑툰</h4>
+        <h4><a name="targetToptoon"></a>탑툰</h4>
     </div>
         <h6 class ="toptoon">액션부터 일상까지, 성숙한 독자 여러분 탑툰에서 만나요! </h6>
     <div class="wrap">
