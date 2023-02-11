@@ -256,7 +256,7 @@
                         let like_give = rows[i]['like']
                         let temp_html = `
                         
-                            <div class="card mb-3" style="float: left; width: 33%;">
+                            <div class="comiccmt" class="card mb-3" style="float: left; width: 33%;">
                                             <img src="../static/best_btn.png" height="15" width="35">${text_give}
                                             <br>${date_give}
                                             23:25<br><br>좋아요 ${like_give}
@@ -272,6 +272,8 @@
 
 <body>
 
+
+    <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="http://43.206.254.91:5000/"><img src="../static/logo.png" width="100"
                 style="margin-left: 10px;"></a>
@@ -293,7 +295,7 @@
             </ul>
         </div>
     </nav>
-
+</div>
     <div id="naver_detail_box">
     </div>
 
@@ -312,6 +314,7 @@
             </button>
         </div>
         <br>
+    </div>
 
 
         <!-- <div class="webtoon"> -->
@@ -377,8 +380,11 @@
     </div>
     -->
 
-        <table class="tg" id="detail_NVComment_cards-box"></table>
+        <table class="tg" id="detail_NVComment_cards-box">
 
+        </table>
+
+        
         <div class="comiccmt" style="padding-top: 50px;">
             <h4 style="padding-bottom: 20px;"> 블로그 후기보기</h4>
             <div style="display: flex; flex-direction: row;">
@@ -445,6 +451,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 </body>
 
