@@ -220,19 +220,22 @@
                         let main_thumb = rows[i]['main_thumb']
                         let summary = rows[i]['summary']
 
-                        let temp_html = `<div class="webtoon">
+                        let temp_html = `
+                        
+                        <div class="webtoon">
                                             <h4 class="title">${title}</h4>
                                             <h6 class="author">${author}</h6>
-                                            <h6 class="topic">${topic}</h6>
                                         </div>
                                         <div id="dtl">
                                             <div class="col w30">
                                                 <img src="${main_thumb}">
                                             </div>
                                             <div class="col w70">
+                                                <div class="row h20"><h6 class="topic">${topic}</h6></div>
                                                 <div class="row h40">${summary}</div>
                                             </div>
-                                        </div>`
+                                        </div>
+                                        `
                         $('#naver_detail_box').append(temp_html)
 
                     }
@@ -257,7 +260,7 @@
                         let temp_html = `
                         
 
-                            <div class="comiccmt" class="card mb-3" style="float: left; width: 33%;">
+                            <div class="card mb-3" style="float: left; width: 33%;">
                                             <img src="../static/best_btn.png" height="15" width="35">${text_give}
                                             <br>${date_give}
                                             23:25<br><br>좋아요 ${like_give}
@@ -277,28 +280,32 @@
 
 
     <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="http://43.206.254.91:5000/"><img src="../static/logo.png" width="100"
-                style="margin-left: 10px;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://43.206.254.91:5000/#targetNaver">네이버</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://43.206.254.91:5000/#targetKakao">카카오</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://43.206.254.91:5000/#targetManhwakyung">탑툰</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="http://43.206.254.91:5000/"><img src="../static/logo.png" width="100"
+                    style="margin-left: 10px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://43.206.254.91:5000/#targetNaver">네이버</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://43.206.254.91:5000/#targetKakao">카카오</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://43.206.254.91:5000/#targetManhwakyung">탑툰</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="naver_detail_box">
+    </div>
+
+
     <div id="naver_detail_box">
     </div>
 
@@ -309,7 +316,7 @@
                     src="https://shared-comic.pstatic.net/thumb/webtoon/651673/1/inst_thumbnail_20150331143247.jpg"></a>
         </div>
         <div class="detail">
-            <h5 style="padding: 30px 0px 0px 20px;">프롤로그</h5>
+            <h5 style="padding: 30px 0px 0px 20px;">유미의 세포들 프롤로그</h5>
         </div>
         <div class="go1btn">
             <button type="button" class="btn btn-dark"
@@ -318,29 +325,48 @@
         </div>
         <br>
     </div>
+    <div class="comiccmt">
+        <table class="tg" id="detail_NVComment_cards-box"></table>
+    </div>
+    <!-- <div class="comiccmt" style="padding-top: 50px;"> -->
+    <!-- <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4> -->
+    <!-- <div class="thumb"> -->
+    <!-- <a href="https://comic.naver.com/webtoon/detail?titleId=651673&no=1&weekday=sat"><img -->
+    <!-- src="https://shared-comic.pstatic.net/thumb/webtoon/651673/1/inst_thumbnail_20150331143247.jpg"></a> -->
+    <!-- </div> -->
+    <!-- <div class="detail"> -->
+    <!-- <h5 style="padding: 30px 0px 0px 20px;">프롤로그</h5> -->
+    <!-- </div> -->
+    <!-- <div class="go1btn"> -->
+    <!-- <button type="button" class="btn btn-dark" -->
+    <!-- onclick="window.open('https://comic.naver.com/webtoon/detail?titleId=651673&no=1&weekday=sat')">작품 보기 -->
+    <!-- </button> -->
+    <!-- </div> -->
+    <!-- <br> -->
+    <!-- </div> -->
 
 
-        <!-- <div class="webtoon"> -->
-        <!-- <h4 class="title">타이틀</h4> -->
-        <!-- <h6 class="author">작가명</h6> -->
-        <!-- <h6 class="topic">장르</h6> -->
-        <!-- </div> -->
-        <!-- <div id="dtl"> -->
-        <!-- <div class="col w30"> -->
-        <!-- <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"> -->
-        <!-- </div> -->
-        <!-- <div class="col w70"> -->
-        <!-- <div class="row h20"> -->
-        <!-- ⭐ 평점 👀 조회수 -->
-        <!-- </div> -->
-        <!-- <div class="row h40">줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- 줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+    <!-- <div class="webtoon"> -->
+    <!-- <h4 class="title">타이틀</h4> -->
+    <!-- <h6 class="author">작가명</h6> -->
+    <!-- <h6 class="topic">장르</h6> -->
+    <!-- </div> -->
+    <!-- <div id="dtl"> -->
+    <!-- <div class="col w30"> -->
+    <!-- <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"> -->
+    <!-- </div> -->
+    <!-- <div class="col w70"> -->
+    <!-- <div class="row h20"> -->
+    <!-- ⭐ 평점 👀 조회수 -->
+    <!-- </div> -->
+    <!-- <div class="row h40">줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- 줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~줄거리~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
 
-        <!-- 서우 
+    <!-- 서우 
 
     <div class="comiccmt" style="padding-top: 50px;">
         <h4 style="padding-bottom: 20px;"> 1화 BEST 댓글 보기</h4>
@@ -383,78 +409,81 @@
     </div>
     -->
 
-        <table class="tg" id="detail_NVComment_cards-box">
+    <!-- <table class="tg" id="detail_NVComment_cards-box">    </table> -->
 
-        </table>
 
-        
-        <div class="comiccmt" style="padding-top: 50px;">
-            <h4 style="padding-bottom: 20px;"> 블로그 후기보기</h4>
-            <div style="display: flex; flex-direction: row;">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 blogimg">
-                            <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg1.daumcdn.net%2Fthumb%2FR800x0%2F%3Ffname%3Dhttps%253A%252F%252Fblog.kakaocdn.net%252Fdn%252Fbs6XoG%252FbtqCrkIyWtH%252FUYKA2tt6F6DRkMfW9e9HqK%252Fimg.jpg&type=fff176_176"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <a href='https://gagamelrivew.tistory.com/66' onclick="window.open(this.href); return false;">재밌는 웹툰추천 - 유미의 세포들 리뷰(작가님천재임)</a>
-                                <p class="card-text"> 완전히는 아니겠지만 최대한 편향을 걷어낸 달달한 이 웹툰을 한번 유미의 세포들은 남자... 어째 스샷들이 전부 새이
-                                    까는샷
-                                    그리고 작화의 발전인지 이 만화의 주인공인...</p>
-                                <p class="card-text"><small class="text-muted"><a
-                                            href="https://gagamelrivew.tistory.com/"  onclick="window.open(this.href); return false;">출처
-                                            :북극성컴퍼니</a></small></p>
-                            </div>
+    <div class="comiccmt" style="padding-top: 50px;">
+        <h4 style="padding-bottom: 20px;"> 블로그 후기보기</h4>
+        <div style="display: flex; flex-direction: row;">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 blogimg">
+                        <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg1.daumcdn.net%2Fthumb%2FR800x0%2F%3Ffname%3Dhttps%253A%252F%252Fblog.kakaocdn.net%252Fdn%252Fbs6XoG%252FbtqCrkIyWtH%252FUYKA2tt6F6DRkMfW9e9HqK%252Fimg.jpg&type=fff176_176"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <a href='https://gagamelrivew.tistory.com/66'
+                                onclick="window.open(this.href); return false;">재밌는 웹툰추천 - 유미의 세포들 리뷰(작가님천재임)</a>
+                            <p class="card-text"> 완전히는 아니겠지만 최대한 편향을 걷어낸 달달한 이 웹툰을 한번 유미의 세포들은 남자... 어째 스샷들이 전부 새이
+                                까는샷
+                                그리고 작화의 발전인지 이 만화의 주인공인...</p>
+                            <p class="card-text"><small class="text-muted"><a href="https://gagamelrivew.tistory.com/"
+                                        onclick="window.open(this.href); return false;">출처
+                                        :북극성컴퍼니</a></small></p>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 blogimg">
-                            <img src="https://younggeun2.s3.ap-northeast-2.amazonaws.com/blog-2.jpg"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <a href="https://blog.naver.com/green1385/222535095786"  onclick="window.open(this.href); return false;">웹툰
-                                    <유미의 세포들>후기(주관적인 인물 분석 포함)
-                                </a>
-                                <p class="card-text"> 유미의세포들은 나의 최애 웹툰 TOP3 중 하나다. 이번에 드라마화 되면서 더 유명해진 웹툰인데..... 드라마 유명해
-                                    져서
-                                    정말 전세계인이 봤으면 좋겠다 ㅠㅠ 이 웹...</p>
-                                <p class="card-text"><small class="text-muted"><a
-                                            href="https://blog.naver.com/green1385/222535095786"  onclick="window.open(this.href); return false;">출처 :3인칭의필요성</a></small>
-                                </p>
-                            </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 blogimg">
+                        <img src="https://younggeun2.s3.ap-northeast-2.amazonaws.com/blog-2.jpg"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <a href="https://blog.naver.com/green1385/222535095786"
+                                onclick="window.open(this.href); return false;">웹툰
+                                <유미의 세포들>후기(주관적인 인물 분석 포함)
+                            </a>
+                            <p class="card-text"> 유미의세포들은 나의 최애 웹툰 TOP3 중 하나다. 이번에 드라마화 되면서 더 유명해진 웹툰인데..... 드라마 유명해
+                                져서
+                                정말 전세계인이 봤으면 좋겠다 ㅠㅠ 이 웹...</p>
+                            <p class="card-text"><small class="text-muted"><a
+                                        href="https://blog.naver.com/green1385/222535095786"
+                                        onclick="window.open(this.href); return false;">출처 :3인칭의필요성</a></small>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 blogimg">
-                            <img src="https://younggeun2.s3.ap-northeast-2.amazonaws.com/blog-3.jpg"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8 ">
-                            <div class="card-body">
-                                <a href="https://blog.naver.com/love_hpness/222144078956"  onclick="window.open(this.href); return false;">네이버 웹툰
-                                    <유미의 세포들> 완결 독자 후기
-                                </a>
-                                <p class="card-text"> 오늘 무빙건 작가의 후기편까지 보고 나니 조금 완결이 실감이 난다. 진짜... 내가 유미의 세포들을 정주행하고 완결까지
-                                    보게
-                                    될 줄, 이게 최애 웹툰이 될 줄 상상도... </p>
-                                <p class="card-text"><small class="text-muted"><a
-                                            href="https://blog.naver.com/love_hpness/222144078956"  onclick="window.open(this.href); return false;">출처 :숲 속 작은
-                                            옹달샘</a></small>
-                                </p>
-                            </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 blogimg">
+                        <img src="https://younggeun2.s3.ap-northeast-2.amazonaws.com/blog-3.jpg"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="card-body">
+                            <a href="https://blog.naver.com/love_hpness/222144078956"
+                                onclick="window.open(this.href); return false;">네이버 웹툰
+                                <유미의 세포들> 완결 독자 후기
+                            </a>
+                            <p class="card-text"> 오늘 무빙건 작가의 후기편까지 보고 나니 조금 완결이 실감이 난다. 진짜... 내가 유미의 세포들을 정주행하고 완결까지
+                                보게
+                                될 줄, 이게 최애 웹툰이 될 줄 상상도... </p>
+                            <p class="card-text"><small class="text-muted"><a
+                                        href="https://blog.naver.com/love_hpness/222144078956"
+                                        onclick="window.open(this.href); return false;">출처 :숲 속 작은
+                                        옹달샘</a></small>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
 
